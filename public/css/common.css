@@ -1,0 +1,142 @@
+ .navbar {
+ background-color: #00AAB5 !important;
+ color: #ffffff !important;
+}
+
+.card {
+  background-color: #eaf1f1 !important;
+  color: #000 !important;
+}
+
+.required:after {
+  content:" *";
+  color: red;
+}
+
+body {
+  background-color:   #BEFCFE !important;
+}
+
+.cmn-btn {
+  border: none;
+  outline: none;
+  background: linear-gradient(90deg, #ff9966, #ff5e62);
+  padding: 0.45rem 1.2rem;
+  color: white;
+  font-size: 0.85rem;
+  box-shadow: 1px 10px 2rem rgba(255, 94, 98, 0.5);
+  transition: all 0.2s ease-in;
+  text-decoration: none;
+}
+
+.btn-edit {
+  border-color: #ff9966;
+  /* outline: none; */
+  background: linear-gradient(90deg, #ff9966, #ff5e62);
+  /* padding: 0.45rem 1.2rem; */
+  color: white;
+  /* font-size: 0.85rem; */
+  box-shadow: 1px 10px 2rem rgba(255, 94, 98, 0.5);
+  transition: all 0.2s ease-in;
+  /* text-decoration: none; */
+}
+
+.link {
+  color: #fff !important;
+  font-size: 15px !important;
+}
+
+.cmn-link {
+  color: #ff5e62 !important;
+  font-size: 15px !important;
+}
+
+li > .active {
+  border-bottom: 3px solid #ff5e62 ;
+}
+
+.active > .page-link {
+  color: #ffffff !important;
+  background: linear-gradient(90deg, #ff9966, #ff5e62);
+  border-color: #ff9966;
+}
+
+.modal-content {
+  background: #E6F4F1;
+  color: #324B4C;
+  text-align: end;
+}
+
+.delete-confirm-text {
+  color: #fb0f0f !important;
+  font-weight: bold;
+}
+
+th {
+  color: #ffffff !important;
+  background-color: #00B6AC !important;
+}
+
+th, thead{
+  position: sticky;
+  top: 0;
+}
+
+.profile {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.detail-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+tbody {
+  vertical-align: middle !important;
+}
+
+.form-check-input:checked {
+  background-color: #ff5e62 !important;
+  border-color: #ff5e62 !important;
+}
+
+.field-icon {
+  float: right;
+  margin-right: 30px;
+  margin-top: -28px;
+  position: relative;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.pagination > .form-select {
+  width: 30% !important;
+}
+
+
+.search-form {
+  /* background-color: #f5f5f5; */
+  padding: 20px;
+  /* border: 1px solid #ddd; */
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}

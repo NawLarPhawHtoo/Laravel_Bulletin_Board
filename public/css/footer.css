@@ -1,0 +1,20 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#app {
+  flex: 1;
+}
+
+footer {
+  background-color: #00AAB5;
+  color: #fff;
+  text-align: center;
+}
