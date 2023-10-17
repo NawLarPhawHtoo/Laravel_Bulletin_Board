@@ -118,7 +118,11 @@
                                     class="col-md-4 col-form-label text-md-end">{{ __('Old Profile') }}</label>
 
                                 <div class="col-md-6">
+                                    @if ($user->profile)
                                     <img class="profile-image" src="{{ asset('profiles/' . $user->profile) }}">
+                                    @else 
+                                    <img class="profile-image" src="{{ asset('profiles/default-user-profile.png') }}">
+                                    @endif
                                 </div>
                             </div>
 

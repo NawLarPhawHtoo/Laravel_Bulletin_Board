@@ -22,7 +22,12 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="mt-4 col-lg-3 col-md-12 col-sm-12 text-center">
+                                @if ($user->profile)
                                 <img class="detail-image" src="{{ asset('profiles/' . $user->profile) }}">
+                                @else
+                                <img class="detail-image" src="{{ asset('profiles/default-user-profile.png') }}">
+                                @endif
+                               
                             </div>
                             <div class="mt-4 col-lg-9 col-md-12 col-sm-12">
                                 <div class="row mb-3">

@@ -51,8 +51,14 @@
                     <div class="col-md-4" style="margin-top: 50px;">
                         <div class="blog_post">
                             <div class="img_pod">
-                                <img class="user-img" src="{{ asset('profiles/' . $post->user->profile) }}"
-                                    alt="Profile Image">
+                                @if ($post->user->profile)
+                                    <img class="user-img" src="{{ asset('profiles/' . $post->user->profile) }}"
+                                        alt="Profile Image">
+                                @else
+                                    <img src={{ asset('profiles/default-user-profile.png') }} class="profile">
+                                @endif
+                                {{-- <img class="user-img" src="{{ asset('profiles/' . $post->user->profile) }}"
+                                    alt="Profile Image"> --}}
                             </div>
                             <div class="container_copy">
                                 <h3 class="name">By <b>{{ $post->user->name }}</b>,

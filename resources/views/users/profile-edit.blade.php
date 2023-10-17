@@ -71,7 +71,7 @@
 
                                 <div class="col-md-6">
                                     <input id="phone" type="text"
-                                        class="form-control @error('phone') is-invalid @enderror" name="phone" required
+                                        class="form-control @error('phone') is-invalid @enderror" name="phone"
                                         autocomplete="phone" value="{{ $user->phone }}" />
 
                                     @error('phone')
@@ -88,7 +88,7 @@
 
                                 <div class="col-md-6">
                                     <input id="dob" type="date"
-                                        class="form-control @error('dob') is-invalid @enderror" name="dob" required
+                                        class="form-control @error('dob') is-invalid @enderror" name="dob"
                                         autocomplete="dob" value="{{ $user->dob }}" />
 
                                     @error('dob')
@@ -105,7 +105,7 @@
 
                                 <div class="col-md-6">
                                     <textarea id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address"
-                                        required autocomplete="address" value="">{{ $user->address }} </textarea>
+                                     autocomplete="address" value="">{{ $user->address }} </textarea>
 
                                     @error('address')
                                         <span class="invalid-feedback" role="alert">
@@ -120,7 +120,11 @@
                                     class="col-md-4 col-form-label text-md-end">{{ __('Old Profile') }}</label>
 
                                 <div class="col-md-6">
+                                    @if ($user->profile)
                                     <img class="profile-image" src="{{ asset('profiles/' . $user->profile) }}">
+                                    @else
+                                    <img class="profile-image" src="{{ asset('profiles/default-user-profile.png') }}">
+                                    @endif
                                 </div>
                             </div>
 

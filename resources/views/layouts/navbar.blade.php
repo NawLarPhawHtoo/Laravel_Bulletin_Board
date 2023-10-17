@@ -3,7 +3,7 @@
         <div class="container">
             <a class="navbar-brand text-white" href="{{ url('/') }}">
                 <!-- Logo Image -->
-                <img src="{{ asset('profiles/download.png') }}" width="80" alt="Logo Image"
+                <img src="{{ asset('profiles/logo.png') }}" width="80" alt="Logo Image"
                     class="d-inline-block align-middle mr-2">
                 <!-- Logo Text -->
                 <span class="text-uppercase font-weight-bold">{{ config('app.name', 'Laravel') }}</span>
@@ -38,10 +38,9 @@
     <nav class="navbar sticky-top navbar-expand-md bg-white shadow-sm">
         <div class="container">
 
-
             <a class="navbar-brand text-white" href="{{ url('/') }}">
                 <!-- Logo Image -->
-                <img src="{{ asset('profiles/download.png') }}" width="80" alt="Logo Image"
+                <img src="{{ asset('profiles/logo.png') }}" width="80" alt="Logo Image"
                     class="d-inline-block align-middle mr-2">
                 <!-- Logo Text -->
                 <span class="text-uppercase font-weight-bold">{{ config('app.name', 'Laravel') }}</span>
@@ -67,7 +66,8 @@
                     </li>
                     <li class="nav-item d-md-block d-lg-none">
                         <a href="{{ route('posts.my-posts') }}"
-                            class="nav-link link {{ request()->is('posts/my-posts') ? 'active' : '' }}" aria-current="page">My
+                            class="nav-link link {{ request()->is('posts/my-posts') ? 'active' : '' }}"
+                            aria-current="page">My
                             Post</a>
                     </li>
 
@@ -92,7 +92,13 @@
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link link dropdown-toggle" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            <img src="/profiles/{{ Auth::user()->profile }}" class="profile">
+                            {{-- <img src="/profiles/{{ Auth::user()->profile }}" class="profile">
+                            {{ Auth::user()->name }} --}}
+                            @if (Auth::user()->profile)
+                                <img src="/profiles/{{ Auth::user()->profile }}" class="profile">
+                            @else
+                                <img src={{ asset('profiles/default-user-profile.png') }} class="profile">
+                            @endif
                             {{ Auth::user()->name }}
                         </a>
 

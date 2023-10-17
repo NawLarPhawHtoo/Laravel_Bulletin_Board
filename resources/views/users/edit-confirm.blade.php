@@ -83,8 +83,13 @@
                                     <input id="profile" type="text"
                                         class="form-control mb-3 @error('profile') is-invalid @enderror" name="profile" required
                                         autocomplete="profile" value="{{ session('profile') }}" readonly />
-                                    <img class="profile-image" src="{{ asset('profiles/' . Session::get('profile')) }}"
+                                        @if (Session::get('profile'))
+                                        <img class="profile-image" src="{{ asset('profiles/' . Session::get('profile')) }}"
                                         alt="Profile Image" />
+                                        @else
+                                        <img class="profile-image" src="{{ asset('profiles/default-user-profile.png') }}"
+                                            alt="Profile Image" />
+                                        @endif
                                 </div>
                             </div>
 

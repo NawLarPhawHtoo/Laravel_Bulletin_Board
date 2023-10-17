@@ -60,11 +60,13 @@
                 </div>
                 <div class="col-lg-2 d-flex align-items-center gap-3 col-md-6 col-sm-12">
                     <label for="fromDate">From:</label>
-                    <input type="date" id="fromDate" name="fromDate" value="{{ request('fromDate') }}" class="form-control">
+                    <input type="date" id="fromDate" name="fromDate" value="{{ request('fromDate') }}"
+                        class="form-control">
                 </div>
                 <div class="col-lg-2 d-flex align-items-center gap-3 col-md-6 col-sm-12">
                     <label for="toDate">To:</label>
-                    <input type="date" id="toDate" name="toDate" value="{{ request('toDate') }}" class="form-control">
+                    <input type="date" id="toDate" name="toDate" value="{{ request('toDate') }}"
+                        class="form-control">
                 </div>
                 <div class="col-lg-2 col-md-6 col-sm-12 search-btn-container">
                     <button class="btn cmn-btn" type="submit">Search</button>
@@ -75,7 +77,7 @@
                 </div>
             </div>
         </form>
-        
+
 
 
         <div class="table-responsive">
@@ -102,9 +104,14 @@
                             <tr class="text-nowrap">
                                 <td>{{ $users->firstItem() + $key }}</td>
                                 <td><a data-bs-toggle="modal" data-bs-target="#detailModal_{{ $user->id }}">
-                                        <div class="d-flex align-items-center"><img class="profile"
-                                                src="{{ asset('profiles/' . $user->profile) }}"><span
-                                                class="ms-2">{{ $user->name }}</span>
+                                        <div class="d-flex align-items-center">
+                                            @if ($user->profile)
+                                                <img class="profile" src="{{ asset('profiles/' . $user->profile) }}">
+                                            @else
+                                                <img class="profile"
+                                                    src="{{ asset('profiles/default-user-profile.png') }}">
+                                            @endif
+                                            <span class="ms-2">{{ $user->name }}</span>
                                         </div>
                                     </a>
                                 </td>
@@ -144,8 +151,13 @@
                                         <div class="modal-body">
                                             <div class="row">
                                                 <div class="mt-4 col-3">
-                                                    <img class="detail-image"
+                                                    @if ($user->profile)
+                                                        <img class="detail-image"
                                                         src="{{ asset('profiles/' . $user->profile) }}">
+                                                    @else
+                                                    <img class="detail-image"
+                                                        src="{{ asset('profiles/default-user-profile.png') }}">
+                                                    @endif
                                                 </div>
                                                 <div class="mt-4 col-sm-9">
                                                     <div class="row mb-3">
@@ -368,7 +380,8 @@
                     </select>
                 </div>
                 <div>
-                    <p class="align-items-center">Showing {{ $users->firstItem() }} to {{ $users->lastItem() }} of total {{ $users->total() }} entries</p>
+                    <p class="align-items-center">Showing {{ $users->firstItem() }} to {{ $users->lastItem() }} of total
+                        {{ $users->total() }} entries</p>
                 </div>
             </form>
             <div class="">
