@@ -134,8 +134,7 @@
                                             class="bi bi-pen"></i></a>
                                     <a data-bs-toggle="modal" class="btn btn-danger"
                                         data-bs-target="#deleteModal_{{ $user->id }}"
-                                        data-action="{{ route('users.destroy', $user->id) }}"><i
-                                            class="bi bi-trash"></i></a>
+                                        data-action="{{ route('users.destroy', $user->id) }}"><i class="bi bi-trash"></i></a>
                                 </td>
                             </tr>
                             <!-- Detail Modal -->
