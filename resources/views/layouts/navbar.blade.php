@@ -92,8 +92,6 @@
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link link dropdown-toggle" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{-- <img src="/profiles/{{ Auth::user()->profile }}" class="profile">
-                            {{ Auth::user()->name }} --}}
                             @if (Auth::user()->profile)
                                 <img src="/profiles/{{ Auth::user()->profile }}" class="profile">
                             @else
