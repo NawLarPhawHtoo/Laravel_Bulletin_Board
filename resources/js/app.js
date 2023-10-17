@@ -1,1 +1,2 @@
-require('./bootstrap');
+// require('./bootstrap');
+import 'bootstrap/dist/js/bootstrap';
