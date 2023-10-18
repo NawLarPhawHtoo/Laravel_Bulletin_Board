@@ -106,7 +106,7 @@
                                 <td><a data-bs-toggle="modal" data-bs-target="#detailModal_{{ $user->id }}">
                                         <div class="d-flex align-items-center">
                                             @if ($user->profile)
-                                                <img class="profile" src="{{ asset('profiles/' . $user->profile) }}">
+                                                <img class="profile" src="{{ Storage::url('profiles/') . $user->profile }}">
                                             @else
                                                 <img class="profile"
                                                     src="{{ asset('profiles/default-user-profile.png') }}">
@@ -152,7 +152,7 @@
                                                 <div class="mt-4 col-3">
                                                     @if ($user->profile)
                                                         <img class="detail-image"
-                                                        src="{{ asset('profiles/' . $user->profile) }}">
+                                                        src="{{ Storage::url('profiles/') . $user->profile }}">
                                                     @else
                                                     <img class="detail-image"
                                                         src="{{ asset('profiles/default-user-profile.png') }}">

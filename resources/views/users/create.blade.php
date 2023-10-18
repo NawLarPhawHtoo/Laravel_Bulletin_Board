@@ -108,9 +108,9 @@
                                     class="col-md-4 col-form-label text-md-end">{{ __('Phone') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="phone" type="text"
+                                    <input id="phone" type="number"
                                         class="form-control @error('phone') is-invalid @enderror" name="phone"
-                                        autocomplete="phone" value="{{ old('phone') }}" />
+                                        autocomplete="phone" value="{{ old('phone') }}" onkeydown="javascript: return ['Backspace','Delete','ArrowLeft','ArrowRight'].includes(event.code) ? true : !isNaN(Number(event.key)) && event.code!=='Space'" />
 
                                     @error('phone')
                                         <span class="invalid-feedback" role="alert">

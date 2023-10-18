@@ -93,7 +93,7 @@
                         <a id="navbarDropdown" class="nav-link link dropdown-toggle" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             @if (Auth::user()->profile)
-                                <img src="/profiles/{{ Auth::user()->profile }}" class="profile">
+                                <img src="{{ Storage::url('profiles/') . Auth::user()->profile }}" class="profile">
                             @else
                                 <img src={{ asset('profiles/default-user-profile.png') }} class="profile">
                             @endif

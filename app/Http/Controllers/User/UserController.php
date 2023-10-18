@@ -122,7 +122,8 @@ class UserController extends Controller
   {
     $validated = $request->validated();
     $profileName = time() . '.' . $validated['profile']->extension();
-    $validated['profile']->move(public_path('profiles'), $profileName);
+    // $validated['profile']->storeAs(public_path('profiles'), $profileName);
+    $validated['profile']->storeAs('profiles', $profileName, 'public');
     return redirect()->route('users.view-create-confirm')->withInput()
       ->with('profile', $profileName);
   }
@@ -159,7 +160,8 @@ class UserController extends Controller
     $validated = $request->validated();
     if ($request->hasFile('profile')) {
       $profileName = time() . '.' . $validated['profile']->extension();
-      $validated['profile']->move(public_path('profiles'), $profileName);
+      // $validated['profile']->storeAs(public_path('profiles'), $profileName);
+      $validated['profile']->storeAs('profiles', $profileName, 'public');
     } else {
       $profileName = $request->user()->profile;
     }
@@ -200,7 +202,8 @@ class UserController extends Controller
     $user = User::find($id);
     if ($request->hasFile('profile')) {
       $profileName = time() . '.' . $validated['profile']->extension();
-      $validated['profile']->move(public_path('profiles'), $profileName);
+      // $validated['profile']->move(public_path('profiles'), $profileName);
+      $validated['profile']->storeAs('profiles', $profileName, 'public');
 
       $user->profile = $profileName;
       $user->save();

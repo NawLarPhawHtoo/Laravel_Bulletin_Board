@@ -119,7 +119,7 @@
 
                                 <div class="col-md-6">
                                     @if ($user->profile)
-                                    <img class="profile-image" src="{{ asset('profiles/' . $user->profile) }}">
+                                    <img class="profile-image" src="{{ Storage::url('profiles/') . $user->profile }}">
                                     @else 
                                     <img class="profile-image" src="{{ asset('profiles/default-user-profile.png') }}">
                                     @endif
