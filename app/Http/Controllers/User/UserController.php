@@ -202,7 +202,6 @@ class UserController extends Controller
     $user = User::find($id);
     if ($request->hasFile('profile')) {
       $profileName = time() . '.' . $validated['profile']->extension();
-      // $validated['profile']->move(public_path('profiles'), $profileName);
       $validated['profile']->storeAs('profiles', $profileName, 'public');
 
       $user->profile = $profileName;

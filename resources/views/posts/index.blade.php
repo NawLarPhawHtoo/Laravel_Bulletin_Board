@@ -57,8 +57,6 @@
                                 @else
                                     <img src={{ asset('profiles/default-user-profile.png') }} class="profile">
                                 @endif
-                                {{-- <img class="user-img" src="{{ asset('profiles/' . $post->user->profile) }}"
-                                    alt="Profile Image"> --}}
                             </div>
                             <div class="container_copy">
                                 <h3 class="name">By <b>{{ $post->user->name }}</b>,
@@ -161,8 +159,6 @@
                                             data-bs-target="#deleteModal_{{ $post->id }}"
                                             data-action="{{ route('posts.destroy', $post->id) }}">Delete</a>
                                     @endif
-                                    {{-- <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button> --}}
                                 </div>
                             </div>
                         </div>
@@ -248,18 +244,15 @@
                         <option value="25" {{ $posts->perPage() == 25 ? 'selected' : '' }}>25</option>
                     </select>
                 </div>
-                <div>
-                    <p class="align-items-center">Showing {{ $posts->firstItem() }} to {{ $posts->lastItem() }} of total
-                        {{ $posts->total() }} entries</p>
-                </div>
             </form>
-            <div class="">
-                {{ $posts->appends(['perPage' => $posts->perPage()])->links() }}
+            <div class="d-flex align-items-center">
+                <p class="align-items-center" style="margin-right: 10px">Showing {{ $posts->firstItem() }} to
+                    {{ $posts->lastItem() }} of total
+                    {{ $posts->total() }} entries</p>
+                <div class="">
+                    {{ $posts->appends(['perPage' => $posts->perPage()])->links() }}
+                </div>
             </div>
         </div>
-
-        {{-- <div class="float-end mt-3 mb-4">
-            {{ $posts->links() }}
-        </div> --}}
     </div>
 @endsection

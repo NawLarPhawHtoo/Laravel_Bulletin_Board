@@ -106,7 +106,8 @@
                                 <td><a data-bs-toggle="modal" data-bs-target="#detailModal_{{ $user->id }}">
                                         <div class="d-flex align-items-center">
                                             @if ($user->profile)
-                                                <img class="profile" src="{{ Storage::url('profiles/') . $user->profile }}">
+                                                <img class="profile"
+                                                    src="{{ Storage::url('profiles/') . $user->profile }}">
                                             @else
                                                 <img class="profile"
                                                     src="{{ asset('profiles/default-user-profile.png') }}">
@@ -134,7 +135,8 @@
                                             class="bi bi-pen"></i></a>
                                     <a data-bs-toggle="modal" class="btn btn-danger"
                                         data-bs-target="#deleteModal_{{ $user->id }}"
-                                        data-action="{{ route('users.destroy', $user->id) }}"><i class="bi bi-trash"></i></a>
+                                        data-action="{{ route('users.destroy', $user->id) }}"><i
+                                            class="bi bi-trash"></i></a>
                                 </td>
                             </tr>
                             <!-- Detail Modal -->
@@ -152,10 +154,10 @@
                                                 <div class="mt-4 col-3">
                                                     @if ($user->profile)
                                                         <img class="detail-image"
-                                                        src="{{ Storage::url('profiles/') . $user->profile }}">
+                                                            src="{{ Storage::url('profiles/') . $user->profile }}">
                                                     @else
-                                                    <img class="detail-image"
-                                                        src="{{ asset('profiles/default-user-profile.png') }}">
+                                                        <img class="detail-image"
+                                                            src="{{ asset('profiles/default-user-profile.png') }}">
                                                     @endif
                                                 </div>
                                                 <div class="mt-4 col-sm-9">
@@ -378,37 +380,15 @@
                         <option value="25" {{ $users->perPage() == 25 ? 'selected' : '' }}>25</option>
                     </select>
                 </div>
-                <div>
-                    <p class="align-items-center">Showing {{ $users->firstItem() }} to {{ $users->lastItem() }} of total
-                        {{ $users->total() }} entries</p>
-                </div>
             </form>
-            <div class="">
-                {{ $users->appends(['perPage' => $users->perPage()])->links() }}
+            <div class="d-flex align-items-center">
+                    <p class="align-items-center" style="margin-right: 10px">Showing {{ $users->firstItem() }} to {{ $users->lastItem() }} of total
+                        {{ $users->total() }} entries</p>
+                <div class="">
+                    {{ $users->appends(['perPage' => $users->perPage()])->links() }}
+                </div>
             </div>
         </div>
-
-        {{-- <div class="float-start">
-            <form class="form-inline" method="GET" action="{{ url()->current() }}">
-                <div class="form-group d-flex">
-                    <label for="perPage">Items per Page: </label>
-                    <select class="form-control" id="perPage" name="perPage" onchange="this.form.submit()">
-                        <option value="5" {{ $users->perPage() == 5 ? 'selected' : '' }}>5</option>
-                        <option value="10" {{ $users->perPage() == 10 ? 'selected' : '' }}>10</option>
-                        <option value="15" {{ $users->perPage() == 15 ? 'selected' : '' }}>15</option>
-                        <option value="20" {{ $users->perPage() == 20 ? 'selected' : '' }}>20</option>
-                        <option value="25" {{ $users->perPage() == 25 ? 'selected' : '' }}>25</option>
-                    </select>
-                </div>
-            </form>
-        </div>
-        
-        <div class="float-end">
-            {{ $users->links() }}
-        </div> --}}
-        {{-- </div>
-        </div>
-    </div> --}}
     </div>
 
 @endsection
