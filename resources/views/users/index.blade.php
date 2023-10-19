@@ -15,38 +15,6 @@
             </div>
         @endif
 
-        {{-- <form method="GET" action="{{ route('userlist') }}">
-            @csrf
-            <div class="row d-flex my-4">
-                <div class="col-lg-3 d-flex gap-3 col-md-6 col-sm-12 mb-3">
-                    <label for="name" class="col-md-4 col-sm-4 col-form-label text-end">Name:</label>
-                    <input type="text" id="name" name="name" value="{{ request('name') }}"
-                        class="form-control primary-outline">
-                </div>
-                <div class="col-lg-3 d-flex gap-3 col-md-6 col-sm-12 mb-3">
-                    <label for="email" class="col-md-4 col-sm-4 col-form-label text-end">Email:</label>
-                    <input type="text" id="email" name="email" value="{{ request('email') }}"
-                        class="form-control primary-outline">
-                </div>
-                <div class="col-lg-2 d-flex gap-3 col-md-6 col-sm-12 mb-3">
-                    <label for="fromDate" class="col-md-4 col-sm-4 col-form-label text-end">From:</label>
-                    <input type="date" id="fromDate" name="fromDate" value="{{ request('fromDate') }}"
-                        class="form-control primary-outline">
-                </div>
-                <div class="col-lg-2 d-flex gap-3 col-md-6 col-sm-12 mb-3">
-                    <label for="toDate" class="col-md-4 col-sm-4 col-form-label text-end">To:</label>
-                    <input type="date" id="toDate" name="toDate" value="{{ request('toDate') }}"
-                        class="form-control primary-outline">
-                </div>
-                <div class="col-lg-2 d-flex gap-3 col-md-6 col-sm-12 mb-3">
-                    <button class="btn cmn-btn" type="submit">Search</button>
-                    <a class="btn cmn-btn d-md-block d-lg-none" href="{{ route('users.create') }}">Create</a>
-                    @if (request()->hasAny(['name', 'email', 'fromDate', 'toDate']))
-                        <a href="{{ route('userlist') }}" class="btn btn-danger">Cancel</a>
-                    @endif
-                </div>
-            </div>
-        </form> --}}
         <form method="GET" action="{{ route('userlist') }}" class="search-form">
             @csrf
             <div class="row align-items-center">
@@ -77,8 +45,6 @@
                 </div>
             </div>
         </form>
-
-
 
         <div class="table-responsive">
 

@@ -17,33 +17,25 @@
             </div>
         @endif
 
-        <div class="d-flex flex-column flex-md-row justify-content-end">
-            <form action="{{ request()->is('posts/my-posts*') ? route('posts.my-posts') : route('posts.search') }}"
-                method="GET" class="btn-group">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" name="search" placeholder="Search for..."
-                        value="{{ request('search') }}" />
+        <form action="{{ request()->is('posts/my-posts*') ? route('posts.my-posts') : route('posts.search') }}" method="GET">
+            
+            <div class="row align-items-center mt-3">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <input type="text" name="search" value="{{ request('search') }}" class="form-control"
+                        placeholder="Search for...">
+                </div>
+                <div class="col-lg-8 d-flex gap-3 col-md-6 col-sm-12 search-btn-container">
                     <button class="btn cmn-btn" type="submit">Search</button>
-                    @if (request()->has('search'))
-                        <a href="{{ route('posts.search') }}" class="btn btn-danger ms-3">Cancel</a>
+                    @if (request()->hasAny('search'))
+                        <a href="{{ route('posts.search') }}" class="btn btn-danger">Cancel</a>
                     @endif
-                </div>
-            </form>
-
-            <div class="d-flex justify-content-end">
-                <div class="mt-3 mt-md-0 ms-md-3">
                     <a href="{{ route('posts.confirm-create') }}" class="btn cmn-btn">Create</a>
-                </div>
-
-                <div class="mt-3 mt-md-0 ms-md-3">
                     <a href="{{ route('posts.upload') }}" class="btn cmn-btn">Upload</a>
-                </div>
-
-                <div class="mt-3 mt-md-0 ms-md-3">
                     <a href="{{ route('posts.export', ['search' => request('search')]) }}" class="btn cmn-btn">Download</a>
+
                 </div>
             </div>
-        </div>
+        </form>
 
         @if (count($posts))
             <div class="row" style="margin-bottom: 35px">
@@ -52,7 +44,7 @@
                         <div class="blog_post">
                             <div class="img_pod">
                                 @if ($post->user->profile)
-                                    <img class="user-img" src="{{ asset('profiles/' . $post->user->profile) }}"
+                                    <img class="user-img" src="{{ Storage::url('profiles/') . $post->user->profile }}"
                                         alt="Profile Image">
                                 @else
                                     <img src={{ asset('profiles/default-user-profile.png') }} class="profile">
