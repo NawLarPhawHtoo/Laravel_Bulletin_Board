@@ -106,7 +106,7 @@
                                     <input id="profile" type="text"
                                         class="form-control mb-3 @error('profile') is-invalid @enderror" name="profile" required
                                         autocomplete="profile" value="{{ session('profile') }}" readonly />
-                                    <img style="max-width:50%;" src="{{ Storage::url('profiles/') . Session::get('profile') }}"
+                                    <img style="max-width:50%;" src="{{ asset('storage/profiles/' . Session::get('profile')) }}"
                                         alt="Profile Image" />
                                 </div>
                             </div>
