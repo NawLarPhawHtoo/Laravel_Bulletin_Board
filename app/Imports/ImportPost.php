@@ -24,10 +24,11 @@ class ImportPost implements ToModel, WithHeadingRow, WithValidation, SkipsOnErro
      */
     public function model(array $row)
     {
+        $status = $row['status'] == 'Active' ? 1 : 0;
         return new Post([
             'title' => $row['title'],
             'description' => $row['description'],
-            'status' => $row['status'],
+            'status' => $status,
             'created_user_id' => Auth::user()->id,
             'updated_user_id' => Auth::user()->id,
         ]);
