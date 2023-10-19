@@ -368,7 +368,7 @@
             </table>
         </div>
 
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between mt-3">
             <form class="col-3" method="GET" action="{{ url()->current() }}">
                 <div class="pagination d-flex align-items-center">
                     <label for="perPage" class="col-4">Items per Page: </label>

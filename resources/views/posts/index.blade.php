@@ -46,7 +46,7 @@
         </div>
 
         @if (count($posts))
-            <div class="row">
+            <div class="row" style="margin-bottom: 35px">
                 @foreach ($posts as $post)
                     <div class="col-md-4" style="margin-top: 50px;">
                         <div class="blog_post">
@@ -232,7 +232,7 @@
             </div>
         @endif
 
-        <div class="d-flex justify-content-between mt-3 mb-4">
+        <div class="d-flex justify-content-between mt-3">
             <form class="col-3" method="GET" action="{{ url()->current() }}">
                 <div class="pagination d-flex align-items-center">
                     <label for="perPage" class="col-4">Items per Page: </label>
