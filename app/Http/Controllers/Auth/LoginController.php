@@ -40,7 +40,7 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    protected function attemptLogin(Request $request)
+    public function attemptLogin(Request $request)
     {
         // $credentials = $request->getCredentials();
 

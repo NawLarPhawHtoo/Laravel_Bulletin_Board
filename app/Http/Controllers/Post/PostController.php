@@ -11,6 +11,7 @@ use App\Http\Requests\PostUploadRequest;
 use App\Imports\ImportPost;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 
 class PostController extends Controller
@@ -29,7 +30,7 @@ class PostController extends Controller
 
   public function index(Request $request)
   {
-    $user_type = auth()->user()->type;
+    $user_type = auth()->user()->type ?? 1;
     $search = $request->search;
 
     $perPage = $request->input('perPage', 6);
@@ -59,7 +60,7 @@ class PostController extends Controller
 
   public function ownpost(Request $request)
   {
-    $userId = auth()->user()->id;
+    $userId = auth()->user()->id ?? 1;
     $search = $request->search;
     $perPage = $request->input('perPage', 6);
 
@@ -92,7 +93,7 @@ class PostController extends Controller
 
   public function confirmPostCreate(PostRequest $request)
   {
-    $validated = $request->validated();
+    // $validated = $request->validated();
     return redirect()->route('posts.view-create-confirm')->withInput();
   }
 
@@ -117,7 +118,8 @@ class PostController extends Controller
    */
   public function store(PostRequest $request)
   {
-    $this->postInterface->store($request);
+    $userId = Auth::user()->id ?? 1;
+    $this->postInterface->store($request, $userId);
     return redirect()->route('posts.search')->withStatus('Post has been created successfully.');
   }
 
@@ -127,11 +129,11 @@ class PostController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function show(Request $request)
-  {
-    $post = $this->postInterface->show($request);
-    return view('posts.detail', compact('post'));
-  }
+  // public function show(Request $request)
+  // {
+  //   $post = $this->postInterface->show($request);
+  //   return view('posts.detail', compact('post'));
+  // }
 
   public function edit($id)
   {
@@ -141,7 +143,7 @@ class PostController extends Controller
 
   public function confirmPostEdit(PostEditRequest $request, $id)
   {
-    $validated = $request->validated();
+    // $validated = $request->validated();
     return redirect()->route('posts.view-edit-confirm', [$id])->withInput();
   }
 
@@ -182,23 +184,41 @@ class PostController extends Controller
     return view('posts.upload');
   }
 
+  // public function importExcel(PostUploadRequest $request)
+  // {
+  //   $file = $request->file('file');
+  //   $import = new ImportPost;
+  //   $import->import($file);
+  //   if ($import->failures()->isNotEmpty()) {
+  //     return back()->withFailures($import->failures());
+  //   }
+  //   return back()->withStatus('Post Imported Successfully.');
+  // }
   public function importExcel(PostUploadRequest $request)
   {
     $file = $request->file('file');
-    $import = new ImportPost;
-    $import->import($file);
-    if ($import->failures()->isNotEmpty()) {
-      return back()->withFailures($import->failures());
+    
+    try {
+      $import = new ImportPost;
+      $import->import($file);
+      // Check for import failures
+      if ($import->failures()->isNotEmpty()) {
+        return back()->withFailures($import->failures());
+      }
+
+      return back()->withStatus('Post Imported Successfully.');
+    } catch (\Exception $e) {
+      return back()->withErrors('An error occurred while processing the Excel file: ' . $e->getMessage());
     }
-    return back()->withStatus('Post Imported Successfully.');
   }
+
 
   public function export(Request $request)
   {
     $exportAll = session('exportAll', true);
     $userId = auth()->user()->id;
     $filter = $request->input('search');
-    
+
     $export = new ExportPost($exportAll, $userId, $filter);
     return Excel::download($export, 'posts.xlsx');
   }

@@ -3,6 +3,7 @@
 namespace App\Exports;
 
 use App\Models\Post;
+use App\Models\User;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithColumnFormatting;
@@ -33,8 +34,12 @@ class ExportPost implements FromCollection, WithHeadings, WithMapping, ShouldAut
   {
     $query = Post::query();
 
+    $user = auth()->user();
+    if (!$user) {
+      $user = User::find(1);
+    }
     if ($this->exportAll) {
-      if (auth()->user()->type == 1) {
+      if ($user->type == 1) {
         $query->where('status', 1);
       }
       $query->select("id", "title", "description", "status", "created_user_id", "updated_user_id", "created_at", "updated_at");

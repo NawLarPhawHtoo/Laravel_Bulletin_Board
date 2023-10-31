@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for D:\Laravel_Bulletin_Board\app</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="_css/bootstrap.min.css?v=10.1.7" rel="stylesheet" type="text/css">
+  <link href="_css/nv.d3.min.css?v=10.1.7" rel="stylesheet" type="text/css">
+  <link href="_css/style.css?v=10.1.7" rel="stylesheet" type="text/css">
+  <link href="_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="index.html">D:\Laravel_Bulletin_Board\app</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Providers/BroadcastServiceProvider.php.html#8">App\Providers\BroadcastServiceProvider</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Console/Kernel.php.html#8">App\Console\Kernel</a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Exports/ExportPost.php.html#16">App\Exports\ExportPost</a></td><td class="text-right">75%</td></tr>
+       <tr><td><a href="Providers/AppServiceProvider.php.html#9">App\Providers\AppServiceProvider</a></td><td class="text-right">88%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Exports/ExportPost.php.html#16">App\Exports\ExportPost</a></td><td class="text-right">11</td></tr>
+       <tr><td><a href="Providers/AppServiceProvider.php.html#9">App\Providers\AppServiceProvider</a></td><td class="text-right">3</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Console/Kernel.php.html#16"><abbr title="App\Console\Kernel::schedule">schedule</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Providers/BroadcastServiceProvider.php.html#15"><abbr title="App\Providers\BroadcastServiceProvider::boot">boot</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Exports/ExportPost.php.html#33"><abbr title="App\Exports\ExportPost::collection">collection</abbr></a></td><td class="text-right">47%</td></tr>
+       <tr><td><a href="Http/Controllers/Post/PostController.php.html#197"><abbr title="App\Http\Controllers\Post\PostController::importExcel">importExcel</abbr></a></td><td class="text-right">62%</td></tr>
+       <tr><td><a href="Providers/AppServiceProvider.php.html#34"><abbr title="App\Providers\AppServiceProvider::boot">boot</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Providers/RouteServiceProvider.php.html#57"><abbr title="App\Providers\RouteServiceProvider::configureRateLimiting">configureRateLimiting</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Imports/ImportPost.php.html#37"><abbr title="App\Imports\ImportPost::rules">rules</abbr></a></td><td class="text-right">87%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Exports/ExportPost.php.html#33"><abbr title="App\Exports\ExportPost::collection">collection</abbr></a></td><td class="text-right">8</td></tr>
+       <tr><td><a href="Http/Controllers/Post/PostController.php.html#197"><abbr title="App\Http\Controllers\Post\PostController::importExcel">importExcel</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Providers/AppServiceProvider.php.html#34"><abbr title="App\Providers\AppServiceProvider::boot">boot</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Providers/RouteServiceProvider.php.html#57"><abbr title="App\Providers\RouteServiceProvider::configureRateLimiting">configureRateLimiting</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 10.1.7</a> using <a href="https://www.php.net/" target="_top">PHP 8.1.23</a> and <a href="https://phpunit.de/">PHPUnit 10.4.1</a> at Fri Oct 27 10:01:53 UTC 2023.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="_js/jquery.min.js?v=10.1.7" type="text/javascript"></script>
+  <script src="_js/d3.min.js?v=10.1.7" type="text/javascript"></script>
+  <script src="_js/nv.d3.min.js?v=10.1.7" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([1,0,0,0,0,0,0,1,1,1,3,38], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([2,0,0,0,0,1,0,3,0,1,0,107], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[66.66666666666666,2,"<a href=\"Console\/Kernel.php.html#8\">App\\Console\\Kernel<\/a>"],[100,1,"<a href=\"Dao\/Auth\/AuthDao.php.html#11\">App\\Dao\\Auth\\AuthDao<\/a>"],[100,6,"<a href=\"Dao\/Post\/PostDao.php.html#9\">App\\Dao\\Post\\PostDao<\/a>"],[100,12,"<a href=\"Dao\/User\/UserDao.php.html#11\">App\\Dao\\User\\UserDao<\/a>"],[100,1,"<a href=\"Exceptions\/Handler.php.html#8\">App\\Exceptions\\Handler<\/a>"],[75,10,"<a href=\"Exports\/ExportPost.php.html#16\">App\\Exports\\ExportPost<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Auth\/ConfirmPasswordController.php.html#9\">App\\Http\\Controllers\\Auth\\ConfirmPasswordController<\/a>"],[100,0,"<a href=\"Http\/Controllers\/Auth\/ForgotPasswordController.php.html#8\">App\\Http\\Controllers\\Auth\\ForgotPasswordController<\/a>"],[100,2,"<a href=\"Http\/Controllers\/Auth\/LoginController.php.html#11\">App\\Http\\Controllers\\Auth\\LoginController<\/a>"],[100,3,"<a href=\"Http\/Controllers\/Auth\/RegisterController.php.html#13\">App\\Http\\Controllers\\Auth\\RegisterController<\/a>"],[100,0,"<a href=\"Http\/Controllers\/Auth\/ResetPasswordController.php.html#9\">App\\Http\\Controllers\\Auth\\ResetPasswordController<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Auth\/VerificationController.php.html#9\">App\\Http\\Controllers\\Auth\\VerificationController<\/a>"],[100,0,"<a href=\"Http\/Controllers\/Controller.php.html#10\">App\\Http\\Controllers\\Controller<\/a>"],[100,2,"<a href=\"Http\/Controllers\/HomeController.php.html#7\">App\\Http\\Controllers\\HomeController<\/a>"],[95.52238805970148,23,"<a href=\"Http\/Controllers\/Post\/PostController.php.html#17\">App\\Http\\Controllers\\Post\\PostController<\/a>"],[100,25,"<a href=\"Http\/Controllers\/User\/UserController.php.html#16\">App\\Http\\Controllers\\User\\UserController<\/a>"],[100,0,"<a href=\"Http\/Kernel.php.html#7\">App\\Http\\Kernel<\/a>"],[100,3,"<a href=\"Http\/Middleware\/AdminMiddleware.php.html#8\">App\\Http\\Middleware\\AdminMiddleware<\/a>"],[100,2,"<a href=\"Http\/Middleware\/Authenticate.php.html#7\">App\\Http\\Middleware\\Authenticate<\/a>"],[100,0,"<a href=\"Http\/Middleware\/EncryptCookies.php.html#7\">App\\Http\\Middleware\\EncryptCookies<\/a>"],[100,0,"<a href=\"Http\/Middleware\/PreventRequestsDuringMaintenance.php.html#7\">App\\Http\\Middleware\\PreventRequestsDuringMaintenance<\/a>"],[100,4,"<a href=\"Http\/Middleware\/RedirectIfAuthenticated.php.html#10\">App\\Http\\Middleware\\RedirectIfAuthenticated<\/a>"],[100,0,"<a href=\"Http\/Middleware\/TrimStrings.php.html#7\">App\\Http\\Middleware\\TrimStrings<\/a>"],[100,1,"<a href=\"Http\/Middleware\/TrustHosts.php.html#7\">App\\Http\\Middleware\\TrustHosts<\/a>"],[100,0,"<a href=\"Http\/Middleware\/TrustProxies.php.html#8\">App\\Http\\Middleware\\TrustProxies<\/a>"],[100,0,"<a href=\"Http\/Middleware\/VerifyCsrfToken.php.html#7\">App\\Http\\Middleware\\VerifyCsrfToken<\/a>"],[100,3,"<a href=\"Http\/Requests\/LoginAPIRequest.php.html#10\">App\\Http\\Requests\\LoginAPIRequest<\/a>"],[100,2,"<a href=\"Http\/Requests\/PasswordChangeRequest.php.html#7\">App\\Http\\Requests\\PasswordChangeRequest<\/a>"],[100,2,"<a href=\"Http\/Requests\/PostEditRequest.php.html#8\">App\\Http\\Requests\\PostEditRequest<\/a>"],[100,2,"<a href=\"Http\/Requests\/PostRequest.php.html#8\">App\\Http\\Requests\\PostRequest<\/a>"],[100,2,"<a href=\"Http\/Requests\/PostUploadRequest.php.html#7\">App\\Http\\Requests\\PostUploadRequest<\/a>"],[100,2,"<a href=\"Http\/Requests\/ProfileEditRequest.php.html#9\">App\\Http\\Requests\\ProfileEditRequest<\/a>"],[100,2,"<a href=\"Http\/Requests\/UserEditRequest.php.html#9\">App\\Http\\Requests\\UserEditRequest<\/a>"],[100,2,"<a href=\"Http\/Requests\/UserRegisterRequest.php.html#7\">App\\Http\\Requests\\UserRegisterRequest<\/a>"],[93.75,3,"<a href=\"Imports\/ImportPost.php.html#17\">App\\Imports\\ImportPost<\/a>"],[100,1,"<a href=\"Models\/Post.php.html#9\">App\\Models\\Post<\/a>"],[100,2,"<a href=\"Models\/User.php.html#13\">App\\Models\\User<\/a>"],[88.88888888888889,3,"<a href=\"Providers\/AppServiceProvider.php.html#9\">App\\Providers\\AppServiceProvider<\/a>"],[100,1,"<a href=\"Providers\/AuthServiceProvider.php.html#9\">App\\Providers\\AuthServiceProvider<\/a>"],[0,1,"<a href=\"Providers\/BroadcastServiceProvider.php.html#8\">App\\Providers\\BroadcastServiceProvider<\/a>"],[100,1,"<a href=\"Providers\/EventServiceProvider.php.html#10\">App\\Providers\\EventServiceProvider<\/a>"],[92.3076923076923,3,"<a href=\"Providers\/RouteServiceProvider.php.html#11\">App\\Providers\\RouteServiceProvider<\/a>"],[100,2,"<a href=\"Services\/Auth\/AuthService.php.html#9\">App\\Services\\Auth\\AuthService<\/a>"],[100,6,"<a href=\"Services\/Post\/PostService.php.html#10\">App\\Services\\Post\\PostService<\/a>"],[100,8,"<a href=\"Services\/User\/UserService.php.html#9\">App\\Services\\User\\UserService<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Console\/Kernel.php.html#16\">App\\Console\\Kernel::schedule<\/a>"],[100,1,"<a href=\"Console\/Kernel.php.html#26\">App\\Console\\Kernel::commands<\/a>"],[100,1,"<a href=\"Dao\/Auth\/AuthDao.php.html#18\">App\\Dao\\Auth\\AuthDao::saveUser<\/a>"],[100,1,"<a href=\"Dao\/Post\/PostDao.php.html#11\">App\\Dao\\Post\\PostDao::store<\/a>"],[100,1,"<a href=\"Dao\/Post\/PostDao.php.html#22\">App\\Dao\\Post\\PostDao::show<\/a>"],[100,1,"<a href=\"Dao\/Post\/PostDao.php.html#28\">App\\Dao\\Post\\PostDao::detail<\/a>"],[100,2,"<a href=\"Dao\/Post\/PostDao.php.html#34\">App\\Dao\\Post\\PostDao::update<\/a>"],[100,1,"<a href=\"Dao\/Post\/PostDao.php.html#46\">App\\Dao\\Post\\PostDao::delete<\/a>"],[100,2,"<a href=\"Dao\/User\/UserDao.php.html#18\">App\\Dao\\User\\UserDao::saveUser<\/a>"],[100,1,"<a href=\"Dao\/User\/UserDao.php.html#41\">App\\Dao\\User\\UserDao::getUserById<\/a>"],[100,1,"<a href=\"Dao\/User\/UserDao.php.html#47\">App\\Dao\\User\\UserDao::getUserList<\/a>"],[100,2,"<a href=\"Dao\/User\/UserDao.php.html#70\">App\\Dao\\User\\UserDao::updateUser<\/a>"],[100,2,"<a href=\"Dao\/User\/UserDao.php.html#86\">App\\Dao\\User\\UserDao::update<\/a>"],[100,3,"<a href=\"Dao\/User\/UserDao.php.html#116\">App\\Dao\\User\\UserDao::changePassword<\/a>"],[100,1,"<a href=\"Dao\/User\/UserDao.php.html#140\">App\\Dao\\User\\UserDao::delete<\/a>"],[100,1,"<a href=\"Exceptions\/Handler.php.html#35\">App\\Exceptions\\Handler::register<\/a>"],[100,1,"<a href=\"Exports\/ExportPost.php.html#22\">App\\Exports\\ExportPost::__construct<\/a>"],[47.05882352941176,5,"<a href=\"Exports\/ExportPost.php.html#33\">App\\Exports\\ExportPost::collection<\/a>"],[100,1,"<a href=\"Exports\/ExportPost.php.html#61\">App\\Exports\\ExportPost::headings<\/a>"],[100,2,"<a href=\"Exports\/ExportPost.php.html#67\">App\\Exports\\ExportPost::map<\/a>"],[100,1,"<a href=\"Exports\/ExportPost.php.html#83\">App\\Exports\\ExportPost::columnFormats<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Auth\/ConfirmPasswordController.php.html#36\">App\\Http\\Controllers\\Auth\\ConfirmPasswordController::__construct<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Auth\/LoginController.php.html#38\">App\\Http\\Controllers\\Auth\\LoginController::__construct<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Auth\/LoginController.php.html#43\">App\\Http\\Controllers\\Auth\\LoginController::attemptLogin<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Auth\/RegisterController.php.html#40\">App\\Http\\Controllers\\Auth\\RegisterController::__construct<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Auth\/RegisterController.php.html#51\">App\\Http\\Controllers\\Auth\\RegisterController::validator<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Auth\/RegisterController.php.html#66\">App\\Http\\Controllers\\Auth\\RegisterController::create<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Auth\/VerificationController.php.html#36\">App\\Http\\Controllers\\Auth\\VerificationController::__construct<\/a>"],[100,1,"<a href=\"Http\/Controllers\/HomeController.php.html#14\">App\\Http\\Controllers\\HomeController::__construct<\/a>"],[100,1,"<a href=\"Http\/Controllers\/HomeController.php.html#24\">App\\Http\\Controllers\\HomeController::index<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Post\/PostController.php.html#21\">App\\Http\\Controllers\\Post\\PostController::__construct<\/a>"],[100,4,"<a href=\"Http\/Controllers\/Post\/PostController.php.html#31\">App\\Http\\Controllers\\Post\\PostController::index<\/a>"],[100,2,"<a href=\"Http\/Controllers\/Post\/PostController.php.html#61\">App\\Http\\Controllers\\Post\\PostController::ownpost<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Post\/PostController.php.html#89\">App\\Http\\Controllers\\Post\\PostController::create<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Post\/PostController.php.html#94\">App\\Http\\Controllers\\Post\\PostController::confirmPostCreate<\/a>"],[100,2,"<a href=\"Http\/Controllers\/Post\/PostController.php.html#105\">App\\Http\\Controllers\\Post\\PostController::showPostConfirm<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Post\/PostController.php.html#119\">App\\Http\\Controllers\\Post\\PostController::store<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Post\/PostController.php.html#138\">App\\Http\\Controllers\\Post\\PostController::edit<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Post\/PostController.php.html#144\">App\\Http\\Controllers\\Post\\PostController::confirmPostEdit<\/a>"],[100,2,"<a href=\"Http\/Controllers\/Post\/PostController.php.html#150\">App\\Http\\Controllers\\Post\\PostController::showEditConfirm<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Post\/PostController.php.html#164\">App\\Http\\Controllers\\Post\\PostController::update<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Post\/PostController.php.html#176\">App\\Http\\Controllers\\Post\\PostController::destroy<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Post\/PostController.php.html#182\">App\\Http\\Controllers\\Post\\PostController::upload<\/a>"],[62.5,3,"<a href=\"Http\/Controllers\/Post\/PostController.php.html#197\">App\\Http\\Controllers\\Post\\PostController::importExcel<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Post\/PostController.php.html#216\">App\\Http\\Controllers\\Post\\PostController::export<\/a>"],[100,1,"<a href=\"Http\/Controllers\/User\/UserController.php.html#26\">App\\Http\\Controllers\\User\\UserController::__construct<\/a>"],[100,1,"<a href=\"Http\/Controllers\/User\/UserController.php.html#36\">App\\Http\\Controllers\\User\\UserController::showRegistrationView<\/a>"],[100,1,"<a href=\"Http\/Controllers\/User\/UserController.php.html#73\">App\\Http\\Controllers\\User\\UserController::submitRegistrationConfirmView<\/a>"],[100,1,"<a href=\"Http\/Controllers\/User\/UserController.php.html#79\">App\\Http\\Controllers\\User\\UserController::showUserList<\/a>"],[100,1,"<a href=\"Http\/Controllers\/User\/UserController.php.html#85\">App\\Http\\Controllers\\User\\UserController::search<\/a>"],[100,1,"<a href=\"Http\/Controllers\/User\/UserController.php.html#116\">App\\Http\\Controllers\\User\\UserController::showCreateView<\/a>"],[100,1,"<a href=\"Http\/Controllers\/User\/UserController.php.html#121\">App\\Http\\Controllers\\User\\UserController::confirmUserCreate<\/a>"],[100,2,"<a href=\"Http\/Controllers\/User\/UserController.php.html#136\">App\\Http\\Controllers\\User\\UserController::showUserConfirm<\/a>"],[100,1,"<a href=\"Http\/Controllers\/User\/UserController.php.html#144\">App\\Http\\Controllers\\User\\UserController::showProfile<\/a>"],[100,1,"<a href=\"Http\/Controllers\/User\/UserController.php.html#151\">App\\Http\\Controllers\\User\\UserController::showProfileEdit<\/a>"],[100,2,"<a href=\"Http\/Controllers\/User\/UserController.php.html#158\">App\\Http\\Controllers\\User\\UserController::submitProfileEdit<\/a>"],[100,2,"<a href=\"Http\/Controllers\/User\/UserController.php.html#178\">App\\Http\\Controllers\\User\\UserController::showProfileEditConfirm<\/a>"],[100,1,"<a href=\"Http\/Controllers\/User\/UserController.php.html#186\">App\\Http\\Controllers\\User\\UserController::submitProfileEditConfirm<\/a>"],[100,1,"<a href=\"Http\/Controllers\/User\/UserController.php.html#193\">App\\Http\\Controllers\\User\\UserController::editUser<\/a>"],[100,2,"<a href=\"Http\/Controllers\/User\/UserController.php.html#199\">App\\Http\\Controllers\\User\\UserController::confirmUserEdit<\/a>"],[100,2,"<a href=\"Http\/Controllers\/User\/UserController.php.html#215\">App\\Http\\Controllers\\User\\UserController::showEditConfirm<\/a>"],[100,1,"<a href=\"Http\/Controllers\/User\/UserController.php.html#229\">App\\Http\\Controllers\\User\\UserController::update<\/a>"],[100,1,"<a href=\"Http\/Controllers\/User\/UserController.php.html#241\">App\\Http\\Controllers\\User\\UserController::showChangePassword<\/a>"],[100,1,"<a href=\"Http\/Controllers\/User\/UserController.php.html#246\">App\\Http\\Controllers\\User\\UserController::savePassword<\/a>"],[100,1,"<a href=\"Http\/Controllers\/User\/UserController.php.html#260\">App\\Http\\Controllers\\User\\UserController::destroy<\/a>"],[100,3,"<a href=\"Http\/Middleware\/AdminMiddleware.php.html#17\">App\\Http\\Middleware\\AdminMiddleware::handle<\/a>"],[100,2,"<a href=\"Http\/Middleware\/Authenticate.php.html#15\">App\\Http\\Middleware\\Authenticate::redirectTo<\/a>"],[100,4,"<a href=\"Http\/Middleware\/RedirectIfAuthenticated.php.html#20\">App\\Http\\Middleware\\RedirectIfAuthenticated::handle<\/a>"],[100,1,"<a href=\"Http\/Middleware\/TrustHosts.php.html#14\">App\\Http\\Middleware\\TrustHosts::hosts<\/a>"],[100,1,"<a href=\"Http\/Requests\/LoginAPIRequest.php.html#17\">App\\Http\\Requests\\LoginAPIRequest::authorize<\/a>"],[100,1,"<a href=\"Http\/Requests\/LoginAPIRequest.php.html#27\">App\\Http\\Requests\\LoginAPIRequest::rules<\/a>"],[100,1,"<a href=\"Http\/Requests\/LoginAPIRequest.php.html#40\">App\\Http\\Requests\\LoginAPIRequest::failedValidation<\/a>"],[100,1,"<a href=\"Http\/Requests\/PasswordChangeRequest.php.html#14\">App\\Http\\Requests\\PasswordChangeRequest::authorize<\/a>"],[100,1,"<a href=\"Http\/Requests\/PasswordChangeRequest.php.html#24\">App\\Http\\Requests\\PasswordChangeRequest::rules<\/a>"],[100,1,"<a href=\"Http\/Requests\/PostEditRequest.php.html#15\">App\\Http\\Requests\\PostEditRequest::authorize<\/a>"],[100,1,"<a href=\"Http\/Requests\/PostEditRequest.php.html#25\">App\\Http\\Requests\\PostEditRequest::rules<\/a>"],[100,1,"<a href=\"Http\/Requests\/PostRequest.php.html#15\">App\\Http\\Requests\\PostRequest::authorize<\/a>"],[100,1,"<a href=\"Http\/Requests\/PostRequest.php.html#25\">App\\Http\\Requests\\PostRequest::rules<\/a>"],[100,1,"<a href=\"Http\/Requests\/PostUploadRequest.php.html#14\">App\\Http\\Requests\\PostUploadRequest::authorize<\/a>"],[100,1,"<a href=\"Http\/Requests\/PostUploadRequest.php.html#24\">App\\Http\\Requests\\PostUploadRequest::rules<\/a>"],[100,1,"<a href=\"Http\/Requests\/ProfileEditRequest.php.html#16\">App\\Http\\Requests\\ProfileEditRequest::authorize<\/a>"],[100,1,"<a href=\"Http\/Requests\/ProfileEditRequest.php.html#26\">App\\Http\\Requests\\ProfileEditRequest::rules<\/a>"],[100,1,"<a href=\"Http\/Requests\/UserEditRequest.php.html#16\">App\\Http\\Requests\\UserEditRequest::authorize<\/a>"],[100,1,"<a href=\"Http\/Requests\/UserEditRequest.php.html#26\">App\\Http\\Requests\\UserEditRequest::rules<\/a>"],[100,1,"<a href=\"Http\/Requests\/UserRegisterRequest.php.html#14\">App\\Http\\Requests\\UserRegisterRequest::authorize<\/a>"],[100,1,"<a href=\"Http\/Requests\/UserRegisterRequest.php.html#24\">App\\Http\\Requests\\UserRegisterRequest::rules<\/a>"],[100,2,"<a href=\"Imports\/ImportPost.php.html#25\">App\\Imports\\ImportPost::model<\/a>"],[87.5,1,"<a href=\"Imports\/ImportPost.php.html#37\">App\\Imports\\ImportPost::rules<\/a>"],[100,1,"<a href=\"Models\/Post.php.html#24\">App\\Models\\Post::user<\/a>"],[100,1,"<a href=\"Models\/User.php.html#56\">App\\Models\\User::posts<\/a>"],[100,1,"<a href=\"Models\/User.php.html#61\">App\\Models\\User::createdUser<\/a>"],[100,1,"<a href=\"Providers\/AppServiceProvider.php.html#16\">App\\Providers\\AppServiceProvider::register<\/a>"],[66.66666666666666,2,"<a href=\"Providers\/AppServiceProvider.php.html#34\">App\\Providers\\AppServiceProvider::boot<\/a>"],[100,1,"<a href=\"Providers\/AuthServiceProvider.php.html#25\">App\\Providers\\AuthServiceProvider::boot<\/a>"],[0,1,"<a href=\"Providers\/BroadcastServiceProvider.php.html#15\">App\\Providers\\BroadcastServiceProvider::boot<\/a>"],[100,1,"<a href=\"Providers\/EventServiceProvider.php.html#28\">App\\Providers\\EventServiceProvider::boot<\/a>"],[100,1,"<a href=\"Providers\/RouteServiceProvider.php.html#36\">App\\Providers\\RouteServiceProvider::boot<\/a>"],[66.66666666666666,2,"<a href=\"Providers\/RouteServiceProvider.php.html#57\">App\\Providers\\RouteServiceProvider::configureRateLimiting<\/a>"],[100,1,"<a href=\"Services\/Auth\/AuthService.php.html#18\">App\\Services\\Auth\\AuthService::__construct<\/a>"],[100,1,"<a href=\"Services\/Auth\/AuthService.php.html#28\">App\\Services\\Auth\\AuthService::saveUser<\/a>"],[100,1,"<a href=\"Services\/Post\/PostService.php.html#14\">App\\Services\\Post\\PostService::__construct<\/a>"],[100,1,"<a href=\"Services\/Post\/PostService.php.html#19\">App\\Services\\Post\\PostService::store<\/a>"],[100,1,"<a href=\"Services\/Post\/PostService.php.html#25\">App\\Services\\Post\\PostService::show<\/a>"],[100,1,"<a href=\"Services\/Post\/PostService.php.html#31\">App\\Services\\Post\\PostService::detail<\/a>"],[100,1,"<a href=\"Services\/Post\/PostService.php.html#37\">App\\Services\\Post\\PostService::update<\/a>"],[100,1,"<a href=\"Services\/Post\/PostService.php.html#43\">App\\Services\\Post\\PostService::delete<\/a>"],[100,1,"<a href=\"Services\/User\/UserService.php.html#18\">App\\Services\\User\\UserService::__construct<\/a>"],[100,1,"<a href=\"Services\/User\/UserService.php.html#28\">App\\Services\\User\\UserService::saveUser<\/a>"],[100,1,"<a href=\"Services\/User\/UserService.php.html#39\">App\\Services\\User\\UserService::getUserById<\/a>"],[100,1,"<a href=\"Services\/User\/UserService.php.html#44\">App\\Services\\User\\UserService::getUserList<\/a>"],[100,1,"<a href=\"Services\/User\/UserService.php.html#49\">App\\Services\\User\\UserService::updateUser<\/a>"],[100,1,"<a href=\"Services\/User\/UserService.php.html#61\">App\\Services\\User\\UserService::update<\/a>"],[100,1,"<a href=\"Services\/User\/UserService.php.html#67\">App\\Services\\User\\UserService::changePassword<\/a>"],[100,1,"<a href=\"Services\/User\/UserService.php.html#73\">App\\Services\\User\\UserService::delete<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

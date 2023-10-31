@@ -37,7 +37,7 @@ class LoginAPIRequest extends FormRequest
      * @param Validator $validator
      * @return Response error json response
      */
-    protected function failedValidation(Validator $validator)
+    public function failedValidation(Validator $validator)
     {
         $errors = $validator->errors();
         

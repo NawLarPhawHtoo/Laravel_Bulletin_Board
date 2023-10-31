@@ -16,9 +16,10 @@ class PostService implements PostServiceInterface
     $this->postDao = $postDao;
   }
 
-  public function store(Request $request)
+  public function store(Request $request, $userId)
   {
-    $this->postDao->store($request);
+    return $this->postDao->store($request, $userId);
+    
   }
 
   public function show()

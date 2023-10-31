@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 interface PostServiceInterface
 {
-  public function store(Request $request);
+  public function store(Request $request, $userId);
 
   public function show();
 

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 interface PostDaoInterface
 {
-  public function store(Request $request);
+  public function store(Request $request, $userId);
 
   public function show();
 

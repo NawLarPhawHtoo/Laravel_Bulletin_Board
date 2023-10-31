@@ -33,7 +33,7 @@ class UserController extends Controller
    * To show registration view
    * @return View registration form
    */
-  protected function showRegistrationView()
+  public function showRegistrationView()
   {
     return view('auth.register');
   }
@@ -44,33 +44,33 @@ class UserController extends Controller
    * @param UserRegisterRequest $request
    * @return View registration confirm
    */
-  protected function submitRegistrationView(UserRegisterRequest $request)
-  {
-    $validated = $request->validated();
-    return redirect()
-      ->route('register.confirm')
-      ->withInput();
-  }
+  // public function submitRegistrationView(UserRegisterRequest $request)
+  // {
+  //   // $validated = $request->validated();
+  //   return redirect()
+  //     ->route('register.confirm')
+  //     ->withInput();
+  // }
 
 
   /**
    * To show registration view
    * @return View registration confirm view
    */
-  protected function showRegistrationConfirmView()
-  {
-    if (old()) {
-      return view('auth.register-confirm');
-    }
-    return redirect()
-      ->route('userlist');
-  }
+  // protected function showRegistrationConfirmView()
+  // {
+  //   if (old()) {
+  //     return view('auth.register-confirm');
+  //   }
+  //   return redirect()
+  //     ->route('userlist');
+  // }
 
   /**
    * To submit register confirm and save user info to DB
    * @return View user list
    */
-  protected function submitRegistrationConfirmView(Request $request)
+public function submitRegistrationConfirmView(Request $request)
   {
     $user = $this->userInterface->saveUser($request);
     return redirect()->route('userlist')->withStatus('New User has been created Successfully.');
@@ -120,10 +120,10 @@ class UserController extends Controller
 
   public function confirmUserCreate(UserRegisterRequest $request)
   {
-    $validated = $request->validated();
-    $profileName = time() . '.' . $validated['profile']->extension();
-    // $validated['profile']->storeAs(public_path('profiles'), $profileName);
-    $validated['profile']->storeAs('profiles', $profileName, 'public');
+    // $validated = $request->validated();
+    $profileName = time() . '.' . $request['profile']->extension();
+    // $request['profile']->storeAs(public_path('profiles'), $profileName);
+    $request['profile']->storeAs('profiles', $profileName, 'public');
     return redirect()->route('users.view-create-confirm')->withInput()
       ->with('profile', $profileName);
   }
@@ -143,25 +143,25 @@ class UserController extends Controller
 
   public function showProfile()
   {
-    $userId = Auth::user()->id;
+    $userId = Auth::user()->id ?? 1;
     $user = $this->userInterface->getUserById($userId);
     return view('users.profile', compact('user'));
   }
 
   public function showProfileEdit()
   {
-    $userId = Auth::user()->id;
+    $userId = Auth::user()->id ?? 1;
     $user = $this->userInterface->getUserById($userId);
     return view('users.profile-edit', compact('user'));
   }
 
   public function submitProfileEdit(ProfileEditRequest $request)
   {
-    $validated = $request->validated();
+    // $validated = $request->validated();
     if ($request->hasFile('profile')) {
-      $profileName = time() . '.' . $validated['profile']->extension();
-      // $validated['profile']->storeAs(public_path('profiles'), $profileName);
-      $validated['profile']->storeAs('profiles', $profileName, 'public');
+      $profileName = time() . '.' . $request['profile']->extension();
+      // $request['profile']->storeAs(public_path('profiles'), $profileName);
+      $request['profile']->storeAs('profiles', $profileName, 'public');
     } else {
       $profileName = $request->user()->profile;
     }
@@ -198,11 +198,11 @@ class UserController extends Controller
 
   public function confirmUserEdit(UserEditRequest $request, $id)
   {
-    $validated = $request->validated();
+    // $validated = $request->validated();
     $user = User::find($id);
     if ($request->hasFile('profile')) {
-      $profileName = time() . '.' . $validated['profile']->extension();
-      $validated['profile']->storeAs('profiles', $profileName, 'public');
+      $profileName = time() . '.' . $request['profile']->extension();
+      $request['profile']->storeAs('profiles', $profileName, 'public');
 
       $user->profile = $profileName;
       $user->save();
@@ -245,8 +245,8 @@ class UserController extends Controller
 
   public function savePassword(PasswordChangeRequest $request)
   {
-    $validated = $request->validated();
-    $user = $this->userInterface->changePassword($validated);
+    // $validated = $request->validated();
+    $user = $this->userInterface->changePassword($request);
     return redirect()->route('users.profile')->withStatus('Change Password Successfully.');
   }
 

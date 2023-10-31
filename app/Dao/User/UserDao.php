@@ -16,7 +16,7 @@ class UserDao implements UserDaoInterface
    * @return Object created user object
    */
   public function saveUser($validated)
-  { 
+  {
     $type = $validated['type'] === 'User' ? 1 : 0;
     $user = new User();
     $user->name = $validated['name'];
@@ -69,7 +69,7 @@ class UserDao implements UserDaoInterface
    */
   public function updateUser(Request $request)
   {
-    $user = User::find(Auth::user()->id);
+    $user = User::find((Auth::user()->id) ?? 1);
     $type = $request['type'] === 'User' ? 1 : 0;
     $user->name = $request['name'];
     $user->email = $request['email'];
@@ -78,12 +78,13 @@ class UserDao implements UserDaoInterface
     $user->phone = $request['phone'];
     $user->dob = $request['dob'];
     $user->address = $request['address'];
-    $user->updated_user_id = Auth::user()->id;
+    $user->updated_user_id = Auth::user()->id ?? 1;
     $user->save();
     return $user;
   }
 
-  public function update(Request $request,$id) {
+  public function update(Request $request, $id)
+  {
     $user = User::find($id);
     $type = $request['type'] === 'User' ? 1 : 0;
     $user->name = $request['name'];
@@ -93,29 +94,53 @@ class UserDao implements UserDaoInterface
     $user->phone = $request['phone'];
     $user->dob = $request['dob'];
     $user->address = $request['address'];
-    $user->updated_user_id = Auth::user()->id;
+    $user->updated_user_id = Auth::user()->id ?? 1;
     $user->save();
     return $user;
   }
 
+  // public function changePassword($validated)
+  // {
+  //   #Match The Old Password
+  //   $user = (auth()->user()) ?? 1;
+  //   if (!Hash::check($validated['current_password'], $user->password)) {
+  //     return back()->with("error", "Current Password Doesn't match!");
+  //   }
+  //   User::find(auth()->user()->id)
+  //     ->update([
+  //       'password' => Hash::make($validated['new_password']),
+  //       'updated_user_id' => Auth::user()->id ?? 1
+  //     ]);
+  //     return back()->with("status", "Password changed successfully!");
+  // }
   public function changePassword($validated)
   {
-    #Match The Old Password
-    if (!Hash::check($validated['current_password'], auth()->user()->password)) {
+    $user = auth()->user();
+
+    // If there's no authenticated user, create a "guest" user instance
+    if (!$user) {
+      $user = User::find(1); // You can choose a default user or create a new instance
+    }
+
+    // Match the old password
+    if (!Hash::check($validated['current_password'], $user->password)) {
       return back()->with("error", "Current Password Doesn't match!");
     }
-    User::find(auth()->user()->id)
+
+    // Update the user's password
+    User::find($user->id)
       ->update([
         'password' => Hash::make($validated['new_password']),
-        'updated_user_id' => Auth::user()->id
+        'updated_user_id' => $user->id,
       ]);
-      return back()->with("status", "Password changed successfully!");
+
+    return back()->with("status", "Password changed successfully!");
   }
 
   public function delete($id)
   {
     $user = User::find($id);
-    $user->deleted_user_id = auth()->user()->id;
+    $user->deleted_user_id = auth()->user()->id ?? 1;
     $user->save();
     $user->delete();
   }

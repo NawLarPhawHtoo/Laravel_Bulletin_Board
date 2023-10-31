@@ -18,11 +18,13 @@ return new class extends Migration
             $table->char('title', 255);
             $table->text('description');
             $table->integer('status')->default(1);
-            $table->foreignId('created_user_id')->references('id')->on('users');
-            $table->foreignId('updated_user_id')->references('id')->on('users');
-            // $table->foreignId('deleted_user_id')->nullable()->references('id')->on('users');
+            $table->unsignedBigInteger('created_user_id');
+            $table->foreign('created_user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('updated_user_id');
+            $table->foreign('updated_user_id')->references('id')->on('users');
+            // $table->foreignId('created_user_id')->nullable()->references('id')->on('users')->onDelete('cascade');
+            // $table->foreignId('updated_user_id')->nullable()->references('id')->on('users')->onDelete('cascade');
             $table->unique(['created_user_id', 'title']);
-            // $table->softDeletes('deleted_at', 0);
             $table->timestamps();
         });
     }

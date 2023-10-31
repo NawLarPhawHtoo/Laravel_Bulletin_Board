@@ -55,7 +55,7 @@ class User extends Authenticatable implements CanResetPasswordContract
 
   public function posts()
   {
-    $this->hasMany(Post::class);
+    return $this->hasMany(Post::class, 'created_user_id');
   }
 
   public function createdUser()

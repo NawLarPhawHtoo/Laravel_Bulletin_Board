@@ -8,13 +8,13 @@ use Illuminate\Http\Request;
 
 class PostDao implements PostDaoInterface
 {
-  public function store(Request $request)
+  public function store(Request $request, $userId)
   {
     $post = new Post();
     $post->title = $request['title'];
     $post->description = $request['description'];
-    $post->created_user_id = auth()->user()->id;
-    $post->updated_user_id = auth()->user()->id;
+    $post->created_user_id = $userId;
+    $post->updated_user_id = $userId;
     $post->save();
     return $post;
   }
@@ -37,8 +37,8 @@ class PostDao implements PostDaoInterface
     $post->title = $request['title'];
     $post->description = $request['description'];
     $post->status = $request['status'] ? 1 : 0;
-    $post->created_user_id = auth()->user()->id;
-    $post->updated_user_id = auth()->user()->id;
+    $post->created_user_id = auth()->user()->id ?? 1;
+    $post->updated_user_id = auth()->user()->id ?? 1;
     $post->save();
     return $post;
   }
