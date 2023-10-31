@@ -35,3 +35,13 @@ document.addEventListener("DOMContentLoaded", function () {
     dobElement.setAttribute("max", today);
   }
 });
+
+function openDetailModal(id) {
+  $("#detailModal_" + id).modal("show");
+}
+
+function openDeleteModal(id, action) {
+  $("#deleteModal").modal("show");
+  // Set the action attribute for the form in the delete modal
+  $("#deleteModal form").attr("action", action);
+}
