@@ -23,11 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-
-// document.addEventListener("DOMContentLoaded", function() {
-//   var today = new Date().toISOString().split('T')[0];
-//   document.getElementById("dob").setAttribute("max", today);
-// });
+//disabled future dates
 document.addEventListener("DOMContentLoaded", function () {
   var today = new Date().toISOString().split('T')[0];
   var dobElement = document.getElementById("dob");
@@ -36,12 +32,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+//nested modal box
 function openDetailModal(id) {
   $("#detailModal_" + id).modal("show");
 }
-
-function openDeleteModal(id, action) {
-  $("#deleteModal").modal("show");
-  // Set the action attribute for the form in the delete modal
-  $("#deleteModal form").attr("action", action);
-}
+$(document).ready(function() {
+  $('[data-bs-toggle="modal"]').click(function() {
+      var target = $(this).data("bs-target");
+      $(target).modal("show");
+  });
+});

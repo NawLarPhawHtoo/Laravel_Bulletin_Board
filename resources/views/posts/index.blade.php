@@ -60,6 +60,8 @@
                                 <p class="description">{{ Illuminate\Support\Str::limit($post->description, 25) }}</p>
                                 <a class="btn_primary" href="javascript:void(0);"
                                     onclick="openDetailModal('{{ $post->id }}')">View Detail &raquo;</a>
+                                {{-- <a class="btn_primary" href="javascript:void(0);" data-bs-toggle="modal"
+                                    data-bs-target="#detailModal_{{ $post->id }}">View Detail &raquo;</a> --}}
 
                             </div>
                         </div>
@@ -165,7 +167,8 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="deleteUserModalLabel">Delete Post Confirm</h5>
-                                    <button type="button" class="btn-close"  data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                                 </div>
                                 <form action="{{ route('posts.destroy', $post->id) }}" method="post">
                                     <div class="modal-body">
@@ -249,12 +252,4 @@
         </div>
     </div>
 @endsection
-<script>
-    // Initialize Bootstrap JavaScript components
-    $(document).ready(function() {
-        $('[data-bs-toggle="modal"]').click(function() {
-            var target = $(this).data("bs-target");
-            $(target).modal("show");
-        });
-    });
-</script>
+
