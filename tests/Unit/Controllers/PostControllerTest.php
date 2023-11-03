@@ -204,6 +204,8 @@ class PostControllerTest extends TestCase
             'updated_user_id' => 1
         ]);
 
+        $this->actingAs($user);
+
         $post = Post::factory()->create();
         if ($post) {
             $requestData = [
@@ -246,58 +248,112 @@ class PostControllerTest extends TestCase
         }
     }
 
-    // public function test_import_post(): void
-    // {
-    //     // $file = UploadedFile::fake()->create('posts.xlsx', 500);
-    //     $testFile = new UploadedFile(
-    //                 path: storage_path('app/posts.xlsx'),
-    //                 originalName:'posts.xlsx',
-    //             );
-    //     $request = Mockery::mock(PostUploadRequest::class);
-    //     $request->shouldReceive('file')->once()->with('file')->andReturn($testFile);
-
-    //     $postDao = new PostDao();
-    //     $postService = new PostService($postDao);
-    //     $postController = new PostController($postService);
-    //     $response = $postController->importExcel($request);
-    //     $this->assertNotNull($response);
-    // }
-    public function test_import_post()
+    public function test_export_own_posts()
     {
-        // Storage::fake('imports');
+        // Create a user for authentication
         $user = User::factory()->create([
+            'type' => 1,
+            'created_user_id' => 1,
+            'updated_user_id' => 1
+        ]);
+
+        // Simulate user authentication
+        $this->actingAs($user);
+
+        // Set the exportAll flag in the session
+        Session::put('exportAll', false);
+        // Session::put('type', 1);
+
+        // Create a request object with the required parameters
+        $request = Request::create('/posts/download', 'GET', ['search' => 'your_search_filter_here']);
+
+        // Create a new instance of the controller
+        $postDao = new PostDao();
+        $postService = new PostService($postDao);
+        $postController = new PostController($postService);
+
+        // Call the export method
+        $response = $postController->export($request);
+
+        // Assert that the response is successful (HTTP status code 200)
+        $this->assertEquals(200, $response->getStatusCode());
+    }
+
+    public function test_export_posts_search()
+    {
+        // Create a user for authentication
+        $user = User::factory()->create([
+            'type' => 1,
+            'created_user_id' => 1,
+            'updated_user_id' => 1
+        ]);
+
+        // Simulate user authentication
+        $this->actingAs($user);
+
+        // Set the exportAll flag in the session
+        Session::put('exportAll', true);
+
+        // Create a request object with the required parameters
+        $request = Request::create('/posts/download', 'GET', ['search' => 'your_search_filter_here']);
+
+        // Create a new instance of the controller
+        $postDao = new PostDao();
+        $postService = new PostService($postDao);
+        $postController = new PostController($postService);
+
+        // Call the export method
+        $response = $postController->export($request);
+
+        // Assert that the response is successful (HTTP status code 200)
+        $this->assertEquals(200, $response->getStatusCode());
+    }
+
+    public function test_import_post(): void
+    {
+        $testFile = new UploadedFile(
+            path: storage_path('app/posts.xlsx'),
+            originalName: 'posts.xlsx',
+        );
+        $request = Mockery::mock(PostUploadRequest::class);
+        $request->shouldReceive('file')->once()->with('file')->andReturn($testFile);
+
+        $postDao = new PostDao();
+        $postService = new PostService($postDao);
+        $postController = new PostController($postService);
+        $response = $postController->importExcel($request);
+        $this->assertNotNull($response);
+    }
+
+    public function test_import_post_failures()
+    {
+        $user = User::factory()->create([
+            'created_user_id' => 1,
+            'updated_user_id' => 1
+        ]);
+
+        $post = Post::factory()->create([
+            'title' => 'Title One',
+            'description' => 'Description One',
             'created_user_id' => 1,
             'updated_user_id' => 1
         ]);
 
         $this->actingAs($user);
         $testFile = new UploadedFile(
-            storage_path('app/posts.xlsx'),
-            'posts.xlsx',
+            storage_path('app/fail_posts.xlsx'),
+            'fail_posts.xlsx',
             null,
             true
         );
 
-        // Excel::fake();
+        $request = Mockery::mock(PostUploadRequest::class);
+        $request->shouldReceive('file')->once()->with('file')->andReturn($testFile);
 
-       
-        $response = $this->post('/post/upload', ['file' => $testFile]);
         $postDao = new PostDao();
         $postService = new PostService($postDao);
         $postController = new PostController($postService);
-        $response = $postController->importExcel(new PostUploadRequest(), $response);
+        $response = $postController->importExcel($request);
         $this->assertNotNull($response);
-        // $response->assertStatus(302);
-
-        // Excel::assertImported('posts.xlsx', 'imports');
-
-        // Excel::assertImported('posts.xlsx', 'imports', function (ImportPost $import) {
-        //     return true;
-        // });
-
-        // // When passing the callback as 2nd param, the disk will be the default disk.
-        // Excel::assertImported('posts.xlsx', function (ImportPost $import) {
-        //     return true;
-        // });
     }
 }

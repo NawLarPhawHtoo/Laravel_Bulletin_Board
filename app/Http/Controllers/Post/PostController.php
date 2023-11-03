@@ -184,20 +184,9 @@ class PostController extends Controller
     return view('posts.upload');
   }
 
-  // public function importExcel(PostUploadRequest $request)
-  // {
-  //   $file = $request->file('file');
-  //   $import = new ImportPost;
-  //   $import->import($file);
-  //   if ($import->failures()->isNotEmpty()) {
-  //     return back()->withFailures($import->failures());
-  //   }
-  //   return back()->withStatus('Post Imported Successfully.');
-  // }
   public function importExcel(PostUploadRequest $request)
   {
     $file = $request->file('file');
-    
     try {
       $import = new ImportPost;
       $import->import($file);

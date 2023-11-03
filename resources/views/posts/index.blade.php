@@ -17,8 +17,9 @@
             </div>
         @endif
 
-        <form action="{{ request()->is('posts/my-posts*') ? route('posts.my-posts') : route('posts.search') }}" method="GET">
-            
+        <form action="{{ request()->is('posts/my-posts*') ? route('posts.my-posts') : route('posts.search') }}"
+            method="GET">
+
             <div class="row align-items-center mt-3">
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <input type="text" name="search" value="{{ request('search') }}" class="form-control"
@@ -57,15 +58,18 @@
 
                                 <h1 class="title">{{ Illuminate\Support\Str::limit($post->title, 15) }}</h1>
                                 <p class="description">{{ Illuminate\Support\Str::limit($post->description, 25) }}</p>
-                                <a class="btn_primary" data-bs-toggle="modal" aria-disabled="true"
-                                    data-bs-target="#detailModal_{{ $post->id }}">View Detail &raquo;</a>
+                                <a class="btn_primary" href="javascript:void(0);"
+                                    onclick="openDetailModal('{{ $post->id }}')">View Detail &raquo;</a>
+                                {{-- <a class="btn_primary" href="javascript:void(0);" data-bs-toggle="modal"
+                                    data-bs-target="#detailModal_{{ $post->id }}">View Detail &raquo;</a> --}}
+
                             </div>
                         </div>
                     </div>
 
                     <!-- Detail Modal -->
-                    <div class="modal fade" id="detailModal_{{ $post->id }}" data-backdrop="static" tabindex="-1"
-                        role="dialog" aria-labelledby="detailPostModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="detailModal_{{ $post->id }}" tabindex="-1" role="dialog"
+                        aria-labelledby="detailPostModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -157,8 +161,8 @@
 
                     </div>
                     <!-- Delete Modal -->
-                    <div class="modal fade" id="deleteModal_{{ $post->id }}" data-backdrop="static" tabindex="-1"
-                        role="dialog" aria-labelledby="deleteUserModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="deleteModal_{{ $post->id }}" role="dialog"
+                        aria-labelledby="deleteUserModalLabel" aria-hidden="true" data-backdrop="static">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -248,3 +252,4 @@
         </div>
     </div>
 @endsection
+

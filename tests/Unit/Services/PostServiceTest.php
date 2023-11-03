@@ -64,6 +64,7 @@ class PostServiceTest extends TestCase
             'created_user_id' => 1,
             'updated_user_id' => 1
         ]);
+        $this->actingAs($user);
 
         $post = Post::factory()->create();
 

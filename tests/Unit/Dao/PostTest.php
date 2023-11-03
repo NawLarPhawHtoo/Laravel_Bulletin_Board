@@ -58,6 +58,8 @@ class PostTest extends TestCase
             'updated_user_id' => 1
         ]);
 
+        $this->actingAs($user);
+
         $post = Post::factory()->create();
 
         if ($post) {

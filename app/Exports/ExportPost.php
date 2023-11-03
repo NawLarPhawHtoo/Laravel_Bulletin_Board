@@ -35,9 +35,9 @@ class ExportPost implements FromCollection, WithHeadings, WithMapping, ShouldAut
     $query = Post::query();
 
     $user = auth()->user();
-    if (!$user) {
-      $user = User::find(1);
-    }
+    // if (!$user) {
+    //   $user = User::find(1);
+    // }
     if ($this->exportAll) {
       if ($user->type == 1) {
         $query->where('status', 1);
